@@ -53,7 +53,7 @@ class InstallSchema implements InstallSchemaInterface
     {
         $this->installer->getConnection()->createTable(
             $table = $this->installer->getConnection()->newTable(
-                $this->installer->getTable('moloni_tokens')
+                'moloni_tokens'
             )->addColumn(
                 'id',
                 \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
@@ -123,7 +123,7 @@ class InstallSchema implements InstallSchemaInterface
     {
         $this->installer->getConnection()->createTable(
             $table = $this->installer->getConnection()->newTable(
-                $this->installer->getTable('moloni_settings')
+                'moloni_settings'
             )->addColumn(
                 'option_id',
                 \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
@@ -169,7 +169,7 @@ class InstallSchema implements InstallSchemaInterface
     {
         $this->installer->getConnection()->createTable(
             $table = $this->installer->getConnection()->newTable(
-                $this->installer->getTable('moloni_documents')
+                'moloni_documents'
             )->addColumn(
                 'document_id',
                 \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
@@ -293,9 +293,9 @@ class InstallSchema implements InstallSchemaInterface
 
         foreach($settingsIndexes as $columnName) {
             $this->installer->getConnection()->addIndex(
-                $this->installer->getTable('moloni_documents'),
+                $this->installer->getTable('moloni_settings'),
                 $this->installer->getIdxName(
-                    $this->installer->getTable('moloni_documents'),
+                    $this->installer->getTable('moloni_settings'),
                     $columnName
                 ),
                 $columnName
