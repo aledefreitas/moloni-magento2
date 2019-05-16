@@ -45,7 +45,7 @@ class InstallSchema implements InstallSchemaInterface
                 $this->{"setIndex".str_replace(' ', '', ucwords(str_replace('_', ' ', $table)))}();
             }
         }
-        
+
         $this->installer->endSetup();
     }
 
@@ -118,7 +118,7 @@ class InstallSchema implements InstallSchemaInterface
 
         return $table;
     }
-    
+
     private function setTableMoloniSettings()
     {
         $this->installer->getConnection()->createTable(
@@ -164,7 +164,7 @@ class InstallSchema implements InstallSchemaInterface
 
         return $table;
     }
-    
+
     private function setTableMoloniDocuments()
     {
         $this->installer->getConnection()->createTable(
@@ -268,13 +268,13 @@ class InstallSchema implements InstallSchemaInterface
             $this->installer->getIdxName(
                 $this->installer->getTable('moloni_documents'),
                 ['document_id', 'company_id', 'store_id', 'order_id', 'order_total', 'invoice_id', 'invoice_total', 'invoice_status', 'invoice_date', 'invoice_type', 'metadata'],
-                \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_INTEGER
+                \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_INDEX
             ),
             ['document_id', 'company_id', 'store_id', 'order_id', 'order_total', 'invoice_id', 'invoice_total', 'invoice_status', 'invoice_date', 'invoice_type', 'metadata'],
-            \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_INTEGER
+            \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_INDEX
         );
     }
-    
+
     private function setIndexMoloniSettings()
     {
         $this->installer->getConnection()->addIndex(
@@ -282,10 +282,10 @@ class InstallSchema implements InstallSchemaInterface
             $this->installer->getIdxName(
                 $this->installer->getTable('moloni_settings'),
                 ['option_id', 'company_id', 'store_id', 'label', 'value'],
-                \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_INTEGER
+                \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_INDEX
             ),
             ['option_id', 'company_id', 'store_id', 'label', 'value'],
-            \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_INTEGER
+            \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_INDEX
         );
     }
 }
